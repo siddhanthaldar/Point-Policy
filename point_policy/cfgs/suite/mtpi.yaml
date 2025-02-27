@@ -1,0 +1,67 @@
+# @package suite
+defaults:
+  - _self_
+  - task: franka_env
+
+suite: franka_env
+name: "franka_env"
+
+# obs dims
+img_size: [256, 256] # (width, height)
+calib_image_size: [640, 480] # (width, height)
+use_robot_points: true
+num_robot_points: 9
+
+# action compute
+point_dim: 2 # 2 or 3
+
+# object points
+use_object_points: true
+num_object_points: ${suite.task.num_object_points}
+
+# task settings
+action_repeat: 1
+hidden_dim: 256
+
+# train settings
+num_train_steps: 100100
+log_every_steps: 100
+save_every_steps: 10000
+history: true
+history_len: 10
+
+# eval
+eval_every_steps: 200000
+num_eval_episodes: 5
+eval_history_len: 10
+
+# data loading
+action_after_steps: 1
+
+# obs_keys
+pixel_keys: ["pixels1", "pixels2"]
+proprio_key: "proprioceptive"
+feature_key: "features"
+
+# snapshot
+save_snapshot: true
+
+task_make_fn:
+  _target_: suite.mtpi.make
+  task_name: ${suite.task.task_name}
+  object_labels: ${suite.task.object_labels}
+  action_repeat: ${suite.action_repeat}
+  height: ${suite.img_size[1]}
+  width: ${suite.img_size[0]}
+  calib_height: ${suite.calib_image_size[1]}
+  calib_width: ${suite.calib_image_size[0]}
+  max_episode_len: ??? # to be specified later
+  max_state_dim: ??? # to be specified later
+  calib_path: ${root_dir}/calib/calib.npy
+  eval: ${eval} # eval true mean use robot
+  pixel_keys: ${suite.pixel_keys}
+  use_robot_points: ${suite.use_robot_points}
+  num_robot_points: ${suite.num_robot_points}
+  use_object_points: ${suite.use_object_points}
+  num_object_points: ${suite.num_object_points}
+  points_cfg: null

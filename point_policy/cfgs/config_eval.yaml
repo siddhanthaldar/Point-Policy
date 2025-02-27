@@ -1,0 +1,46 @@
+defaults:
+  - _self_
+  - agent: point_policy
+  - suite: point_policy
+  - dataloader: point_policy
+  - override hydra/launcher: submitit_local
+
+# Dir
+root_dir: /path/to/dir
+data_dir: /path/to/expert_demos
+
+# misc
+seed: 2
+device: cuda
+save_video: true
+use_tb: true
+batch_size: 64
+
+# experiment
+num_demos_per_task: 100
+policy_head: deterministic
+use_proprio: false
+eval: true
+experiment: eval
+experiment_label: ${policy_head}
+
+# action chunking
+temporal_agg: true # aggregate actions over time
+num_queries: 20
+
+# expert dataset
+expert_dataset: ${dataloader.bc_dataset}
+
+# Load weights
+bc_weight: path/to/weight
+
+hydra:
+  run:
+    dir: ./exp_local/eval/${now:%Y.%m.%d}_${experiment}/${experiment_label}/${now:%H%M%S}_hidden_dim_${suite.hidden_dim}
+  sweep:
+    dir: ./exp_local/${now:%Y.%m.%d}/${now:%H%M%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    tasks_per_node: 1
+    nodes: 1
+    submitit_folder: ./exp_local/${now:%Y.%m.%d}/${now:%H%M%S}_${experiment}/.slurm

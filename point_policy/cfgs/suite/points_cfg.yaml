@@ -1,0 +1,23 @@
+defaults:
+  - _self_
+  - task: p3po
+
+root_dir: /path/to/repo
+dift_path: ${root_dir}/dift
+cotracker_checkpoint: ${root_dir}/co-tracker/checkpoints/scaled_online.pth
+
+task_name: null
+pixel_keys: null
+device: "cuda"
+
+width: -1
+height: -1
+image_size_multiplier: 1
+
+ensemble_size: 8
+dift_layer: 1
+dift_steps: 50
+
+num_points: -1
+
+object_labels: null

@@ -1,0 +1,9 @@
+defaults:
+  - _self_
+  - franka_env: 0121_bottle_on_rack
+
+suite: franka_env
+
+task_name: ${suite.task.franka_env.task_name}
+object_labels: ${suite.task.franka_env.object_labels}
+num_object_points: ${suite.task.franka_env.num_object_points}

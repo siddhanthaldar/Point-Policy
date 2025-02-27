@@ -1,0 +1,16 @@
+bc_dataset:
+  _target_: read_data.baku.BCDataset
+  path: ${data_dir}/franka_env
+  tasks: ${suite.task.task_name}
+  num_demos_per_task: ${num_demos_per_task}
+  history: ${suite.history}
+  history_len: ${suite.history_len}
+  temporal_agg: ${temporal_agg}
+  num_queries: ${num_queries}
+  img_size: ${suite.img_size}
+  action_after_steps: ${suite.action_after_steps}
+  pixel_keys: ${suite.pixel_keys}
+  subsample: 3
+  skip_first_n: 0
+  action_type: ${suite.action_type}
+  gt_depth: ${suite.gt_depth}

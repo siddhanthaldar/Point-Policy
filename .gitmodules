@@ -1,0 +1,9 @@
+[submodule "co-tracker"]
+	path = co-tracker
+	url = git@github.com:mlevy2525/co-tracker.git
+[submodule "dift"]
+	path = dift
+	url = git@github.com:mlevy2525/dift.git
+[submodule "Franka-Teach"]
+	path = Franka-Teach
+	url = git@github.com:NYU-robot-learning/Franka-Teach.git

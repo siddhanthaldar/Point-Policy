@@ -1,0 +1,6 @@
+defaults:
+  - _self_
+
+task_name: drawer_close
+object_labels: [objects]
+num_object_points: 8

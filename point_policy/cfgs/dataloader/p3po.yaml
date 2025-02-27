@@ -1,0 +1,21 @@
+bc_dataset:
+  _target_: read_data.p3po.BCDataset
+  path: ${data_dir}/franka_env
+  tasks: ${suite.task.task_name}
+  num_demos_per_task: ${num_demos_per_task}
+  history: ${suite.history}
+  history_len: ${suite.history_len}
+  temporal_agg: ${temporal_agg}
+  num_queries: ${num_queries}
+  img_size: ${suite.img_size}
+  action_after_steps: ${suite.action_after_steps}
+  use_robot_points: ${suite.use_robot_points}
+  num_robot_points: ${suite.num_robot_points}
+  use_object_points: ${suite.use_object_points}
+  num_object_points: ${suite.num_object_points}
+  point_dim: ${suite.point_dim}
+  pixel_keys: ${suite.pixel_keys}
+  action_type: ${suite.action_type}
+  subsample: 3
+  skip_first_n: 0
+  gt_depth: ${suite.gt_depth}

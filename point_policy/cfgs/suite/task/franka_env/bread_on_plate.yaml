@@ -1,0 +1,6 @@
+defaults:
+  - _self_
+
+task_name: bread_on_plate
+object_labels: [objects]
+num_object_points: 8

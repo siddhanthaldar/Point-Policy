@@ -1,0 +1,21 @@
+# @package agent
+_target_: agent.mtpi.BCAgent
+obs_shape: ??? # to be specified later
+action_shape: ??? # to be specified later
+device: ${device}
+lr: 1e-4
+hidden_dim: ${suite.hidden_dim}
+stddev_schedule: 0.1
+use_tb: ${use_tb}
+policy_head: ${policy_head}
+pixel_keys: ${suite.pixel_keys}
+history: ${suite.history}
+history_len: ${suite.history_len}
+eval_history_len: ${suite.eval_history_len}
+temporal_agg: ${temporal_agg}
+max_episode_len: ${suite.task_make_fn.max_episode_len}
+num_queries: ${num_queries}
+num_robot_points: ${suite.num_robot_points}
+use_object_points: ${suite.use_object_points}
+num_object_points: ${suite.num_object_points}
+pred_gripper: true

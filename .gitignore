@@ -169,3 +169,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# ignore
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+*/exp_local/
+*/*/exp_local/
+expert_demos/
+coordinates*/
+calib/
