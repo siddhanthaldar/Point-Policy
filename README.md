@@ -1,6 +1,6 @@
 # Point Policy: Unifying Observations and Actions with Key Points for Robot Manipulation
 
-This is a repository containing the code for the paper [Point Policy: Unifying Observations and Actions with Key Points for Robot Manipulation]().
+This is a repository containing the code for the paper [Point Policy: Unifying Observations and Actions with Key Points for Robot Manipulation](https://arxiv.org/abs/2502.20391).
 
 ![Image](https://github.com/user-attachments/assets/a03066bc-16fc-4ce5-b1eb-e3c8dc329a2d)
 
