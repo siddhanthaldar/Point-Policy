@@ -13,10 +13,10 @@ We have provided the instructions for [installation and data collection](instruc
 If you find this work useful, please cite the paper using the following bibtex:
 
 ```
-@article{haldar2024point,
+@article{haldar2025point,
   title={Point Policy: Unifying Observations and Actions with Key Points for Robot Manipulation},
   author={Haldar, Siddhant and Pinto, Lerrel},
-  journal={arXiv preprint arXiv:2406.07539},
+  journal={arXiv preprint arXiv:2502.20391},
   year={2025}
 }
 ```
