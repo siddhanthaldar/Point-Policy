@@ -69,6 +69,15 @@ class Workspace:
                         points_cfg = yaml.safe_load(stream)
                     except yaml.YAMLError as exc:
                         print(exc)
+                    root_dir, dift_path, cotracker_checkpoint = (
+                        points_cfg["root_dir"],
+                        points_cfg["dift_path"],
+                        points_cfg["cotracker_checkpoint"],
+                    )
+                    points_cfg["dift_path"] = f"{root_dir}/{dift_path}"
+                    points_cfg[
+                        "cotracker_checkpoint"
+                    ] = f"{root_dir}/{cotracker_checkpoint}"
                 self.cfg.suite.task_make_fn.points_cfg = points_cfg
         except:
             pass

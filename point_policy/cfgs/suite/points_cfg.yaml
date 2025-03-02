@@ -3,8 +3,8 @@ defaults:
   - task: p3po
 
 root_dir: /path/to/repo
-dift_path: ${root_dir}/dift
-cotracker_checkpoint: ${root_dir}/co-tracker/checkpoints/scaled_online.pth
+dift_path: dift
+cotracker_checkpoint: co-tracker/checkpoints/scaled_online.pth
 
 task_name: null
 pixel_keys: null

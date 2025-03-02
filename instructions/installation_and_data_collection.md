@@ -32,6 +32,9 @@ sudo chmod 777 setup.sh # make executable
 - Instructions for data collection are provided in the [Franka Teach submodule](Franka-Teach/README.md). This is a fork of [Open Teach](https://github.com/aadhithya14/Open-Teach) modified to only work with Franka robots.
 
 ## Data Preprocessing Instructions
+
+NOTE: Set 'root_dir' in `point_policy/cfg/suite/point_cfg.yaml` to `path/to/repo`.
+
 - Go to the robot utils Franka directory.
 ```
 cd point-policy/robot_utils/franka

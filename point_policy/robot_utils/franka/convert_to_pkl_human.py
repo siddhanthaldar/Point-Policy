@@ -87,6 +87,13 @@ if process_points:
             cfg = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
             print(exc)
+        root_dir, dift_path, cotracker_checkpoint = (
+            cfg["root_dir"],
+            cfg["dift_path"],
+            cfg["cotracker_checkpoint"],
+        )
+        cfg["dift_path"] = f"{root_dir}/{dift_path}"
+        cfg["cotracker_checkpoint"] = f"{root_dir}/{cotracker_checkpoint}"
         cfg["task_name"] = task_names[0]
         cfg["pixel_keys"] = [
             camera2pixelkey[f"cam_{cam_idx}"] for cam_idx in camera_indices
@@ -332,7 +339,7 @@ for TASK_NAME in task_names:
             max_gripper = np.maximum(max_gripper, np.max(gripper_states))
             min_gripper = np.minimum(min_gripper, np.min(gripper_states))
 
-        if not use_gt_depth:
+        if process_points and not use_gt_depth:
             """
             Triangulate 3D points from 2D points when gt_depth is not available
             """
