@@ -32,12 +32,6 @@ parser.add_argument("--data_dir", type=str, help="Path to the data directory")
 parser.add_argument("--calib_path", type=str, help="Path to the calibration file")
 parser.add_argument("--task_names", nargs="+", type=str, help="List of task names")
 parser.add_argument(
-    "--object_coords_names",
-    nargs="+",
-    type=str,
-    help="List of task names corresponding to object coords",
-)
-parser.add_argument(
     "--num_demos", type=int, default=None, help="Number of demonstrations to process"
 )
 parser.add_argument(
@@ -51,7 +45,6 @@ args = parser.parse_args()
 DATA_DIR = Path(args.data_dir)
 CALIB_PATH = Path(args.calib_path)
 task_names = args.task_names
-object_coords_names = args.object_coords_names
 NUM_DEMOS = args.num_demos
 process_points = args.process_points
 use_gt_depth = args.use_gt_depth
@@ -73,8 +66,6 @@ if save_img_size is None:
         int(original_img_size[1] * (crop_h[1] - crop_h[0])),
     )
 
-assert len(task_names) == len(object_coords_names)
-
 
 if task_names is None:
     task_names = [x.name for x in PROCESSED_DATA_PATH.iterdir() if x.is_dir()]
@@ -91,7 +82,14 @@ if process_points:
             cfg = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
             print(exc)
-        cfg["task_name"] = object_coords_names[0]
+        root_dir, dift_path, cotracker_checkpoint = (
+            cfg["root_dir"],
+            cfg["dift_path"],
+            cfg["cotracker_checkpoint"],
+        )
+        cfg["dift_path"] = f"{root_dir}/{dift_path}"
+        cfg["cotracker_checkpoint"] = f"{root_dir}/{cotracker_checkpoint}"
+        cfg["task_name"] = task_names[0]
         cfg["pixel_keys"] = [
             camera2pixelkey[f"cam_{cam_idx}"] for cam_idx in camera_indices
         ]
