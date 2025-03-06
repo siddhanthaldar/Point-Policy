@@ -21,7 +21,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("--data_dir", type=str, help="Path to the data directory")
 parser.add_argument("--task_names", nargs="+", type=str, help="List of task names")
 parser.add_argument(
-    "--process_depth", type=bool, default=True, help="Whether to process depth data"
+    "--process_depth", action="store_true", help="Whether to process depth data"
 )
 parser.add_argument(
     "--num_demos", type=int, default=None, help="Number of demonstrations to process"

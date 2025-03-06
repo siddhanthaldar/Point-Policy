@@ -31,7 +31,7 @@ parser.add_argument("--data_dir", type=str, help="Path to the data directory")
 parser.add_argument("--calib_path", type=str, help="Path to the calibration file")
 parser.add_argument("--task_name", type=str, help="List of task names")
 parser.add_argument(
-    "--use_gt_depth", type=bool, default=False, help="Use ground truth depth"
+    "--use_gt_depth", action="store_true", help="Use ground truth depth"
 )
 
 args = parser.parse_args()

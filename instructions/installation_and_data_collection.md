@@ -41,11 +41,11 @@ cd point-policy/robot_utils/franka
 ```
 - Once you have collected the human data using Franka Teach, process it to remove pauses and save it in a nicer format.
 ```
-python process_data_human.py --data_dir path/to/data --task_names <task_name>
+python process_data_human.py --data_dir path/to/data --task_names <task_name> --process_depth
 ```
 - Convert the data to a pickle file (without processing key points first).
 ```
-python convert_to_pkl_human.py --data_dir path/to/data --calib_path path/to/calib_file --task_names <task_name> --process_point False
+python convert_to_pkl_human.py --data_dir path/to/data --calib_path path/to/calib_file --task_names <task_name>
 ```
 - NOTE: Before generating task data, we first need generate the calibration file.
     - For calibration, generate the pkl file without points for the calibration data (collected using Franka Teach) and make sure to set the `PATH_DATA_PKL` to the data pickle file for the calib data first.
@@ -60,7 +60,7 @@ python convert_to_pkl_human.py --data_dir path/to/data --calib_path path/to/cali
 - Label semantically meaningful points for each task following commands in `point-policy/robot_utils/franka/label_points.ipynb`
 - Save pickle data with key point labels, both for the human hand and object points obtained through human annotations.
 ```
-python convert_to_pkl_human.py --data_dir path/to/data --calib_path path/to/calib_file --task_names <task_name> --process_point True
+python convert_to_pkl_human.py --data_dir path/to/data --calib_path path/to/calib_file --task_names <task_name> --process_points
 ```
 - Convert human hand poses to robot actions in the data.
 ```

@@ -34,11 +34,9 @@ parser.add_argument("--task_names", nargs="+", type=str, help="List of task name
 parser.add_argument(
     "--num_demos", type=int, default=None, help="Number of demonstrations to process"
 )
+parser.add_argument("--process_points", action="store_true", help="Process key points")
 parser.add_argument(
-    "--process_points", type=bool, default=False, help="Process human hand points"
-)
-parser.add_argument(
-    "--use_gt_depth", type=bool, default=False, help="Use ground truth depth"
+    "--use_gt_depth", action="store_true", help="Use ground truth depth"
 )
 
 args = parser.parse_args()
