@@ -8,6 +8,10 @@ This is a repository containing the code for the paper [Point Policy: Unifying O
 
 We have provided the instructions for [installation and data collection](instructions/installation_and_data_collection.md) and [code execution](instructions/code.md) at the respective links.
 
+## Dataset
+
+We have made the data used for Point Policy publicly available [here](https://huggingface.co/datasets/siddhanthaldar/Point-Policy/tree/main).
+
 ## Bibtex
 
 If you find this work useful, please cite the paper using the following bibtex:
